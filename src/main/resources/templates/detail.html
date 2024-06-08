@@ -1,0 +1,112 @@
+<!-- version 1 -->
+
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rectangle Detail</title>
+</head>
+<body>
+<h1>Rectangle Detail</h1>
+<p>Name: <span th:text="${rectangle.name}">Rectangle Name</span></p>
+<p>Width: <span th:text="${rectangle.width}">Rectangle Width</span></p>
+<p>Height: <span th:text="${rectangle.height}">Rectangle Height</span></p>
+<p>Color: <span th:text="${rectangle.color}">Rectangle Color</span></p>
+<a href="/">Back to List</a>
+<a th:href="@{|/edit/${rectangle.id}|}">Edit</a>
+<a th:href="@{|/delete/${rectangle.id}|}">Delete</a>
+</body>
+</html>
+ -->
+
+<!-- version 2 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rectangle Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .rectangle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            border: 1px solid #333;
+            color: #fff;
+            font-weight: bold;
+        }
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 5px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${rectangle.name} + '\'s display page '">Rectangle Display</h1>
+    <div class="rectangle" th:style="'width: ' + ${rectangle.width} + 'px; height: ' + ${rectangle.height} + 'px; background-color: ' + ${rectangle.color}">
+        <span th:text="${rectangle.name}">Rectangle Name</span>
+    </div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <td th:text="${rectangle.name}">Rectangle Name</td>
+        </tr>
+        <tr>
+            <th>Width</th>
+            <td th:text="${rectangle.width}">Rectangle Width</td>
+        </tr>
+        <tr>
+            <th>Height</th>
+            <td th:text="${rectangle.height}">Rectangle Height</td>
+        </tr>
+        <tr>
+            <th>Color</th>
+            <td th:text="${rectangle.color}">Rectangle Color</td>
+        </tr>
+    </table>
+    <a href="/" class="button">Back to List</a>
+    <a th:href="@{|/edit/${rectangle.id}|}" class="button">Edit</a>
+    <a th:href="@{|/delete/${rectangle.id}|}" class="button">Delete</a>
+</div>
+</body>
+</html>

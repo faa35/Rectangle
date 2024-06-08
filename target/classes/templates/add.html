@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Rectangle</title>
+</head>
+<body>
+<h1>Add Rectangle</h1>
+<form th:action="@{/add}" th:object="${rectangle}" method="post">
+    <label>Name:</label>
+    <input type="text" th:field="*{name}" /><br/>
+    <label>Width:</label>
+    <input type="number" th:field="*{width}" /><br/>
+    <label>Height:</label>
+    <input type="number" th:field="*{height}" /><br/>
+    <label>Color:</label>
+    <input type="color" th:field="*{color}" /><br/>
+    <button type="submit">Add</button>
+</form>
+<a href="/">Back to List</a>
+</body>
+</html>
+
+ <!-- <!DOCTYPE html>
+ <html xmlns:th="http://www.thymeleaf.org">
+ <head>
+     <title>Add Rectangle</title>
+     
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+ </head>
+ <body>
+ <div class="container">
+     <h1 class="my-4">Add Rectangle</h1>
+     <form th:action="@{/add}" th:object="${rectangle}" method="post" class="needs-validation" novalidate>
+         <div class="form-group">
+             <label for="name">Name:</label>
+             <input type="text" id="name" th:field="*{name}" class="form-control" required/>
+             <div class="invalid-feedback">
+                 Please provide a name.
+             </div>
+         </div>
+         <div class="form-group">
+             <label for="width">Width:</label>
+             <input type="number" id="width" th:field="*{width}" class="form-control" required/>
+             <div class="invalid-feedback">
+                 Please provide a width.
+             </div>
+         </div>
+         <div class="form-group">
+             <label for="height">Height:</label>
+             <input type="number" id="height" th:field="*{height}" class="form-control" required/>
+             <div class="invalid-feedback">
+                 Please provide a height.
+             </div>
+         </div>
+         <div class="form-group">
+             <label for="color">Color:</label>
+             <input type="text" id="color" th:field="*{color}" class="form-control" required/>
+             <div class="invalid-feedback">
+                 Please provide a color.
+             </div>
+         </div>
+         <button type="submit" class="btn btn-primary">Add</button>
+     </form>
+     <a href="/" class="btn btn-link my-4">Back to List</a>
+ 
+     
+     <h2 class="my-4">Rectangle List</h2>
+     <table class="table table-striped">
+         <thead>
+             <tr>
+                 <th scope="col">ID</th>
+                 <th scope="col">Name</th>
+                 <th scope="col">Width</th>
+                 <th scope="col">Height</th>
+                 <th scope="col">Color</th>
+             </tr>
+         </thead>
+         <tbody>
+             <tr th:each="rectangle : ${rectangles}">
+                 <td th:text="${rectangle.id}"></td>
+                 <td th:text="${rectangle.name}"></td>
+                 <td th:text="${rectangle.width}"></td>
+                 <td th:text="${rectangle.height}"></td>
+                 <td th:text="${rectangle.color}"></td>
+             </tr>
+         </tbody>
+     </table>
+ </div>
+ 
+
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+
+ <script>
+     (function () {
+         'use strict';
+         window.addEventListener('load', function () {
+             var forms = document.getElementsByClassName('needs-validation');
+             var validation = Array.prototype.filter.call(forms, function (form) {
+                 form.addEventListener('submit', function (event) {
+                     if (form.checkValidity() === false) {
+                         event.preventDefault();
+                         event.stopPropagation();
+                     }
+                     form.classList.add('was-validated');
+                 }, false);
+             });
+         }, false);
+     })();
+ </script>
+ </body>
+ </html>
+  -->

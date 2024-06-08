@@ -1,0 +1,129 @@
+<!-- Version 1 -->
+
+
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rectangles</title>
+</head>
+<body>
+<h1>Rectangles</h1>
+<a href="/add">Add New Rectangle</a>
+<ul>
+    <li th:each="rectangle : ${rectangles}">
+        <a th:href="@{|/rectangle/${rectangle.id}|}" th:text="${rectangle.name}">Rectangle Name</a>
+        <a th:href="@{|/edit/${rectangle.id}|}">Edit</a>
+        <a th:href="@{|/delete/${rectangle.id}|}">Delete</a>
+    </li>
+</ul>
+</body>
+</html> -->
+
+
+
+<!-- version 4 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Rectangles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .no-rectangles {
+            text-align: center;
+            color: #777;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Rectangles</h1>
+    <a href="/add" class="button">Add New Rectangle</a>
+    <div th:if="${#lists.isEmpty(rectangles)}" class="no-rectangles">
+        <p>No rectangles added yet.</p>
+    </div>
+    <div th:if="${!#lists.isEmpty(rectangles)}">
+        <table>
+            <thead>
+                <tr>
+                    <th> </th>
+                    <th>Name</th>
+                    <th>Color</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="rectangle, iterStat : ${rectangles}">
+                    <td th:text="${iterStat.count}">1</td>
+                    <td > <a th:href="@{|/rectangle/${rectangle.id}|}" th:text="${rectangle.name}">Rectangle Name </a></td>
+                    <td th:text="${rectangle.color}">Color</td>
+                    <td>
+                        <!-- <a th:href="@{|/rectangle/${rectangle.id}|}">View</a>
+                        <a th:href="@{|/edit/${rectangle.id}|}">Edit</a> -->
+                        <a th:href="@{|/delete/${rectangle.id}|}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
