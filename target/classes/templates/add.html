@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Add Rectangle</title>
@@ -18,98 +18,350 @@
 </form>
 <a href="/">Back to List</a>
 </body>
+</html> -->
+
+
+
+
+<!-- version 2 -->
+
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Rectangle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        form {
+            text-align: left;
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="color"],
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="color"] {
+            padding: 0;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        a.button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Add Rectangle</h1>
+    <form th:action="@{/add}" th:object="${rectangle}" method="post">
+        <label>Name:</label>
+        <input type="text" th:field="*{name}" /><br/>
+        <label>Width:</label>
+        <input type="number" th:field="*{width}" /><br/>
+        <label>Height:</label>
+        <input type="number" th:field="*{height}" /><br/>
+        <label>Color:</label>
+        <input type="color" th:field="*{color}" /><br/>
+        <button type="submit">Add</button>
+    </form>
+    <a href="/" class="button">Back to List</a>
+</div>
+</body>
+</html> -->
+
+
+<!-- version 3 -->
+<!-- <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Rectangle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        form {
+            text-align: left;
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="color"],
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="color"] {
+            padding: 0;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            width: 48%;
+            box-sizing: border-box;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var name = document.forms["rectangleForm"]["name"].value;
+            if (name == "") {
+                alert("You have to add a name for adding a rectangle");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>Add Rectangle</h1>
+    <form name="rectangleForm" th:action="@{/add}" th:object="${rectangle}" method="post" onsubmit="return validateForm()">
+        <label>Name:</label>
+        <input type="text" th:field="*{name}" /><br/>
+        <label>Width:</label>
+        <input type="number" th:field="*{width}" /><br/>
+        <label>Height:</label>
+        <input type="number" th:field="*{height}" /><br/>
+        <label>Color:</label>
+        <input type="color" th:field="*{color}" /><br/>
+        <div class="button-container">
+            <button type="submit" class="button">Add</button>
+            <a href="/" class="button">Back to List</a>
+        </div>
+    </form>
+</div>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Rectangle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .form-section,
+        .preview-section {
+            width: 48%;
+        }
+        .form-section form {
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="number"]
+        {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="color"] 
+        {
+
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            width: 48%;
+            box-sizing: border-box;
+            border: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .preview-section {
+            text-align: center;
+        }
+        .preview-rectangle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px auto;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var name = document.forms["rectangleForm"]["name"].value;
+            if (name == "") {
+                alert("You must name your Rectangle for adding it to the list");
+                return false;
+            }
+            return true;
+        }
+
+        function updatePreview() {
+            var name = document.forms["rectangleForm"]["name"].value;
+            var width = document.forms["rectangleForm"]["width"].value;
+            var height = document.forms["rectangleForm"]["height"].value;
+            var color = document.forms["rectangleForm"]["color"].value;
+
+            var previewRectangle = document.getElementById("previewRectangle");
+            previewRectangle.style.width = width + "px";
+            previewRectangle.style.height = height + "px";
+            previewRectangle.style.backgroundColor = color;
+            previewRectangle.textContent = name;
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>Add Rectangle</h1>
+    <div class="form-container">
+        <div class="form-section">
+            <form name="rectangleForm" th:action="@{/add}" th:object="${rectangle}" method="post" onsubmit="return validateForm()">
+                <label>Name:</label>
+                <input type="text" th:field="*{name}" oninput="updatePreview()" /><br/>
+                <label>Width:</label>
+                <input type="number" th:field="*{width}" oninput="updatePreview()" /><br/>
+                <label>Height:</label>
+                <input type="number" th:field="*{height}" oninput="updatePreview()" /><br/>
+                <label>Color:</label>
+                <input type="color" th:field="*{color}" oninput="updatePreview()" /><br/>
+                <div class="button-container">
+                    <button type="submit" class="button">Add</button>
+                    <a href="/" class="button">Back to List</a>
+                </div>
+            </form>
+        </div>
+        <div class="preview-section">
+            <h2>Preview</h2>
+            <div id="previewRectangle" class="preview-rectangle">
+                Rectangle Preview
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 </html>
 
- <!-- <!DOCTYPE html>
- <html xmlns:th="http://www.thymeleaf.org">
- <head>
-     <title>Add Rectangle</title>
-     
-     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
- </head>
- <body>
- <div class="container">
-     <h1 class="my-4">Add Rectangle</h1>
-     <form th:action="@{/add}" th:object="${rectangle}" method="post" class="needs-validation" novalidate>
-         <div class="form-group">
-             <label for="name">Name:</label>
-             <input type="text" id="name" th:field="*{name}" class="form-control" required/>
-             <div class="invalid-feedback">
-                 Please provide a name.
-             </div>
-         </div>
-         <div class="form-group">
-             <label for="width">Width:</label>
-             <input type="number" id="width" th:field="*{width}" class="form-control" required/>
-             <div class="invalid-feedback">
-                 Please provide a width.
-             </div>
-         </div>
-         <div class="form-group">
-             <label for="height">Height:</label>
-             <input type="number" id="height" th:field="*{height}" class="form-control" required/>
-             <div class="invalid-feedback">
-                 Please provide a height.
-             </div>
-         </div>
-         <div class="form-group">
-             <label for="color">Color:</label>
-             <input type="text" id="color" th:field="*{color}" class="form-control" required/>
-             <div class="invalid-feedback">
-                 Please provide a color.
-             </div>
-         </div>
-         <button type="submit" class="btn btn-primary">Add</button>
-     </form>
-     <a href="/" class="btn btn-link my-4">Back to List</a>
- 
-     
-     <h2 class="my-4">Rectangle List</h2>
-     <table class="table table-striped">
-         <thead>
-             <tr>
-                 <th scope="col">ID</th>
-                 <th scope="col">Name</th>
-                 <th scope="col">Width</th>
-                 <th scope="col">Height</th>
-                 <th scope="col">Color</th>
-             </tr>
-         </thead>
-         <tbody>
-             <tr th:each="rectangle : ${rectangles}">
-                 <td th:text="${rectangle.id}"></td>
-                 <td th:text="${rectangle.name}"></td>
-                 <td th:text="${rectangle.width}"></td>
-                 <td th:text="${rectangle.height}"></td>
-                 <td th:text="${rectangle.color}"></td>
-             </tr>
-         </tbody>
-     </table>
- </div>
- 
-
- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
- 
-
- <script>
-     (function () {
-         'use strict';
-         window.addEventListener('load', function () {
-             var forms = document.getElementsByClassName('needs-validation');
-             var validation = Array.prototype.filter.call(forms, function (form) {
-                 form.addEventListener('submit', function (event) {
-                     if (form.checkValidity() === false) {
-                         event.preventDefault();
-                         event.stopPropagation();
-                     }
-                     form.classList.add('was-validated');
-                 }, false);
-             });
-         }, false);
-     })();
- </script>
- </body>
- </html>
-  -->
